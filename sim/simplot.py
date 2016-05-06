@@ -1,8 +1,6 @@
 import multiprocessing
 import os
 
-import matplotlib.pyplot as plt
-
 import simstore
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'plots')
@@ -21,7 +19,8 @@ YLABELS = {
 
 
 def plot(key, data):
-    # Random test data
+    import matplotlib.pyplot as plt
+
     all_data = [run['results'] for run in data]
 
     fig, axis = plt.subplots(nrows=1, ncols=1, figsize=(10, 5))
