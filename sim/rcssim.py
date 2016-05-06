@@ -151,7 +151,7 @@ def sim_json(name):
     return one_sim(ex)
 
 
-def simall_json(names=None):
+def simall_json(names=None, filter_cb=None):
     def on_error(e):
         raise e
 
@@ -163,6 +163,11 @@ def simall_json(names=None):
     else:
         experiments = [e for e in experiments if e['active']]
 
+    if filter_cb:
+        experiments = [e for e in experiments if filter_cb(e)]
+
+    print('Running %s' % ' '.join(e['name'] for e in experiments))
+
     for ex in experiments:
         one_sim(ex)
 
@@ -171,10 +176,15 @@ def run_all_sims():
     simall_json()
 
 
+def run_new_sims():
+    existing = set(key for key, _ in simstore.load_all())
+    simall_json(filter_cb=lambda e: e['name'] not in existing)
+
 def help():
     print('Usage: %s CMD' % sys.argv[0])
     print('Available commands (CMD):')
     print(' sim   Run simulations and store results')
+    print(' simc  Run all simulations without current results (continue)')
     print(' plot  Plot results')
 
 
@@ -186,6 +196,8 @@ def main():
 
     if cmd == 'sim':
         run_all_sims()
+    elif cmd == 'simc':
+        run_new_sims()
     elif cmd == 'plot':
         names = sys.argv[2:]
         if names:
