@@ -1,4 +1,4 @@
-\documentclass[conference,a4paper]{IEEEtran}
+\documentclass[letterpaper,conference]{IEEEtran}
 
 \usepackage[utf8]{inputenc}
 \usepackage{cite}
@@ -141,13 +141,8 @@ Remarkably, when keeping the total number of edits constant, the total merge cou
 
 Another interesting question concerns the communication behaviour when two nodes meet. Up until now, we assumed that at every meeting, a sender simply \textit{pushes} a packet to a receiver. Alternatively, we can assume that sender and receiver perform the \textit{merge} collaboratively (or either of them immediately distributes the result). A third model would be both nodes exchanging their current state before merging (\textit{doublepush}).
 
-As can be seen in fig. \ref{fig:bidi_n10} and fig. \ref{fig:bidi_n20}, merging before parting ways is the most effective method by far. This is not surprising, as this approach is similar to the same simulation with half the node count. By making sure that every merge has to be performed by both communication partners, the doublepush scheme has the opposite effect.
+As can be seen in fig. \ref{fig:bidi_n20}, merging before parting ways is the most effective method by far. This is not surprising, as this approach is similar to the same simulation with half the node count. By making sure that every merge has to be performed by both communication partners, the doublepush scheme has the opposite effect.
 
-\begin{figure}
-  \includegraphics[width=\linewidth]{img_pdf/bidi_n=10.pdf}
-  \caption{Bidirectional merging with 10 nodes}
-  \label{fig:bidi_n10}
-\end{figure}
 \begin{figure}
   \includegraphics[width=\linewidth]{img_pdf/bidi_n=20.pdf}
   \caption{Bidirectional merging with 20 nodes}
