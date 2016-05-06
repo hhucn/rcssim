@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import collections
 import functools
 import io
 import json
@@ -59,10 +60,19 @@ def get_default_params_dict():
     return res
 
 
-def one_sim_run(params, rng_seed):
+SimplifiedSimResult = collections.namedtuple('SimplifiedSimResult',
+    ['edit_count', 'commit_count', 'res'])
+
+
+def one_sim_run(params, crit, rng_seed):
     rng = random.Random(rng_seed)
     simres = simcore.sim(rng, params)
-    return simres
+    res = SimplifiedSimResult(
+        simres.edit_count,
+        simres.commit_count,
+        getattr(simres, crit)
+    )
+    return res
 
 
 def one_sim(ex):
@@ -74,9 +84,6 @@ def one_sim(ex):
     if crit is None:
         crit = 'cost'
     assert isinstance(crit, str)
-
-    def critfunc(res):
-        return getattr(res, crit)
 
     print(name)
 
@@ -105,18 +112,14 @@ def one_sim(ex):
         rng_seeds = [
             run + change_idx * params.runs
             for run in range(params.runs)]
-        called_func = functools.partial(one_sim_run, params)
+        called_func = functools.partial(
+            one_sim_run, params, crit)
 
-        simresults = pool.map(called_func, rng_seeds)
+        simplified_results = pool.map(called_func, rng_seeds)
 
-        results = []
-        edit_counts = []
-        commit_counts = []
-        for simres in simresults:
-            edit_counts.append(simres.edit_count)
-            commit_counts.append(simres.commit_count)
-            cost = critfunc(simres)
-            results.append(cost)
+        results = [sr.res for sr in simplified_results]
+        commit_counts = [sr.commit_count for sr in simplified_results]
+        edit_counts = [sr.edit_count for sr in simplified_results]
 
         sres = {
             'params': params._asdict(),
