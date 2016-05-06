@@ -1,0 +1,453 @@
+[{
+    "active": true,
+    "name": "dumb_sunset_n_scale_last",
+    "crit": "time_last",
+    "xlabel": "Number of nodes",
+    "base_params": {
+        "meeting_duration": 500,
+        "intelligent_merging": false,
+        "meeting_every_per_node": 1
+    },
+    "changes": [
+        {"node_count": 5},
+        {"node_count": 10},
+        {"node_count": 11},
+        {"node_count": 12},
+        {"node_count": 13},
+        {"node_count": 14},
+        {"node_count": 15},
+        {"node_count": 17},
+        {"node_count": 20},
+        {"node_count": 5, "intelligent_merging": true, "_label": "ideal:5"},
+        {"node_count": 20, "intelligent_merging": true, "_label": "ideal:20"}
+    ]
+}, {
+    "active": false,
+    "name": "bored_n=10",
+    "base_params": {
+        "meeting_duration": 500,
+        "node_count": 10,
+        "meeting_every_per_node": 1
+    },
+    "crit": "time_last",
+    "xlabel": "probability of user ignoring changes when edits are identical (n=10)",
+    "changes": [
+        {"bored_base": 0},
+        {"bored_base": 0.1},
+        {"bored_base": 0.2},
+        {"bored_base": 0.3},
+        {"bored_base": 0.4},
+        {"bored_base": 0.5},
+        {"bored_base": 0.5},
+        {"bored_base": 0.6},
+        {"bored_base": 0.7},
+        {"bored_base": 0.8},
+        {"bored_base": 0.9},
+        {"bored_base": 1}
+    ]
+}, {
+    "active": false,
+    "name": "bored_n=15",
+    "base_params": {
+        "meeting_duration": 500,
+        "node_count": 15,
+        "meeting_every_per_node": 1
+    },
+    "crit": "time_last",
+    "xlabel": "probability of user ignoring changes when edits are identical (n=15)",
+    "changes": [
+        {"bored_base": 0},
+        {"bored_base": 0.1},
+        {"bored_base": 0.2},
+        {"bored_base": 0.3},
+        {"bored_base": 0.4},
+        {"bored_base": 0.5},
+        {"bored_base": 0.5},
+        {"bored_base": 0.6},
+        {"bored_base": 0.7},
+        {"bored_base": 0.8},
+        {"bored_base": 0.9},
+        {"bored_base": 1}
+    ]
+}, {
+    "active": true,
+    "name": "bored_n=20",
+    "base_params": {
+        "meeting_duration": 500,
+        "node_count": 20,
+        "meeting_every_per_node": 1
+    },
+    "crit": "time_last",
+    "xlabel": "probability of user ignoring changes when edits are identical (n=20)",
+    "changes": [
+        {"bored_base": 0},
+        {"bored_base": 0.1},
+        {"bored_base": 0.2},
+        {"bored_base": 0.3},
+        {"bored_base": 0.4},
+        {"bored_base": 0.5},
+        {"bored_base": 0.5},
+        {"bored_base": 0.6},
+        {"bored_base": 0.7},
+        {"bored_base": 0.8},
+        {"bored_base": 0.9},
+        {"bored_base": 1}
+    ]
+}, {
+    "active": false,
+    "name": "bored_n=30",
+    "base_params": {
+        "meeting_duration": 500,
+        "node_count": 30,
+        "meeting_every_per_node": 1
+    },
+    "crit": "time_last",
+    "xlabel": "probability of user ignoring remote changes when edits are identical (n=30)",
+    "changes": [
+        {"bored_base": 0},
+        {"bored_base": 0.1},
+        {"bored_base": 0.2},
+        {"bored_base": 0.3},
+        {"bored_base": 0.4},
+        {"bored_base": 0.5},
+        {"bored_base": 0.5},
+        {"bored_base": 0.6},
+        {"bored_base": 0.7},
+        {"bored_base": 0.8},
+        {"bored_base": 0.9},
+        {"bored_base": 1}
+    ]
+}, {
+    "active": true,
+    "name": "bored_accept_n=20",
+    "base_params": {
+        "meeting_duration": 500,
+        "node_count": 20,
+        "meeting_every_per_node": 1
+    },
+    "crit": "time_last",
+    "xlabel": "probability of user discarding own in favor of remote version when edits are identical (n=20)",
+    "changes": [
+        {"bored_base": 0},
+        {"bored_base": 0.1},
+        {"bored_base": 0.2},
+        {"bored_base": 0.3},
+        {"bored_base": 0.4},
+        {"bored_base": 0.5},
+        {"bored_base": 0.5},
+        {"bored_base": 0.6},
+        {"bored_base": 0.7},
+        {"bored_base": 0.8},
+        {"bored_base": 0.9},
+        {"bored_base": 1}
+    ]
+}, {
+    "active": false,
+    "name": "i_v_dumb",
+    "base_params": {
+        "node_count": 10,
+        "meeting_duration": 500
+    },
+    "changes": [
+        {"intelligent_merging": false},
+        {"intelligent_merging": true}
+    ]
+}, {
+    "active": true,
+    "name": "n_with_same_edits",
+    "base_params": {
+        "meeting_every_per_node": 1
+    },
+    "xlabel": "number of nodes",
+    "changes": [
+        {"node_count": 10},
+        {"node_count": 15},
+        {"node_count": 20},
+        {"node_count": 25},
+        {"node_count": 30},
+        {"node_count": 35}
+    ]
+}, {
+    "active": false,
+    "name": "n_with_same_edits_uniform",
+    "base_params": {
+        "meeting_every_per_node": 1,
+        "edit_distribution": "uniform"
+    },
+    "xlabel": "number of nodes (uniform edit distribution)",
+    "changes": [
+        {"node_count": 10},
+        {"node_count": 15},
+        {"node_count": 20},
+        {"node_count": 25},
+        {"node_count": 30},
+        {"node_count": 35}
+    ]
+}, {
+    "active": false,
+    "name": "n_with_same_edits_fast",
+    "base_params": {
+        "meeting_every_per_node": 0.1
+    },
+    "xlabel": "number of nodes (fast network)",
+    "changes": [
+        {"node_count": 10},
+        {"node_count": 15},
+        {"node_count": 20},
+        {"node_count": 25},
+        {"node_count": 30},
+        {"node_count": 35}
+    ]
+}, {
+    "active": false,
+    "name": "n_with_same_edits_fast_uniform",
+    "base_params": {
+        "meeting_every_per_node": 0.1,
+        "edit_distribution": "uniform"
+    },
+    "xlabel": "number of nodes (fast network, uniform edit distribution)",
+    "changes": [
+        {"node_count": 10},
+        {"node_count": 15},
+        {"node_count": 20},
+        {"node_count": 25},
+        {"node_count": 30},
+        {"node_count": 35}
+    ]
+}, {
+    "active": false,
+    "name": "n_with_same_edits_fast_uniform",
+    "base_params": {
+        "meeting_every_per_node": 0.1,
+        "edit_distribution": "uniform"
+    },
+    "xlabel": "number of nodes (fast network, uniform edit distribution)",
+    "changes": [
+        {"node_count": 10},
+        {"node_count": 15},
+        {"node_count": 20},
+        {"node_count": 25},
+        {"node_count": 30},
+        {"node_count": 35}
+    ]
+}, {
+    "active": true,
+    "name": "bidi_n=10",
+    "base_params": {"node_count": 10, "meeting_every_per_node": 1},
+    "xlabel": "Meeting model",
+    "changes": [
+        {"bidi": "push"},
+        {"bidi": "merge"},
+        {"bidi": "doublepush"}
+    ]
+}, {
+    "active": false,
+    "name": "bidi_n=10_fast",
+    "base_params": {"node_count": 10, "meeting_every_per_node": 0.1},
+    "xlabel": "Meeting model",
+    "changes": [
+        {"bidi": "push"},
+        {"bidi": "merge"},
+        {"bidi": "doublepush"}
+    ]
+}, {
+    "active": true,
+    "name": "bidi_n=20",
+    "base_params": {"node_count": 20, "meeting_every_per_node": 1},
+    "xlabel": "Meeting model",
+    "changes": [
+        {"bidi": "push"},
+        {"bidi": "merge"},
+        {"bidi": "doublepush"}
+    ]
+}, {
+    "active": false,
+    "name": "bidi_n=20_fast",
+    "base_params": {"node_count": 20, "meeting_every_per_node": 0.1},
+    "xlabel": "Meeting model",
+    "changes": [
+        {"bidi": "push"},
+        {"bidi": "merge"},
+        {"bidi": "doublepush"}
+    ]
+}, {
+    "active": true,
+    "name": "global_meeting_frequency_n=10",
+    "xlabel": "meeting frequency per node (ideal, n=10)",
+    "changes": [
+        {"meeting_every_per_node": 10},
+        {"meeting_every_per_node": 5},
+        {"meeting_every_per_node": 2},
+        {"meeting_every_per_node": 1},
+        {"meeting_every_per_node": 0.5},
+        {"meeting_every_per_node": 0.1},
+        {"meeting_every_per_node": 0.05}
+    ],
+    "base_params": {
+        "node_count": 10,
+        "edit_every_global": 1
+    }
+}, {
+    "active": false,
+    "name": "edit_distribution_freq",
+    "xlabel": "meeting frequency (Uniform|Exponential edit distribution)",
+    "changes": [
+        {"meeting_every_per_node": 10, "_label": "10e", "edit_distribution": "expo"},
+        {"meeting_every_per_node": 10, "_label": "10u", "edit_distribution": "uniform"},
+        {"meeting_every_per_node": 5, "_label": "5e", "edit_distribution": "expo"},
+        {"meeting_every_per_node": 5, "_label": "5u", "edit_distribution": "uniform"},
+        {"meeting_every_per_node": 2, "_label": "2e", "edit_distribution": "expo"},
+        {"meeting_every_per_node": 2, "_label": "2u", "edit_distribution": "uniform"},
+        {"meeting_every_per_node": 1, "_label": "1e", "edit_distribution": "expo"},
+        {"meeting_every_per_node": 1, "_label": "1u", "edit_distribution": "uniform"},
+        {"meeting_every_per_node": 0.5, "_label": "0.5e", "edit_distribution": "expo"},
+        {"meeting_every_per_node": 0.5, "_label": "0.5u", "edit_distribution": "uniform"},
+        {"meeting_every_per_node": 0.1, "_label": "0.1e", "edit_distribution": "expo"},
+        {"meeting_every_per_node": 0.1, "_label": "0.1u", "edit_distribution": "uniform"},
+        {"meeting_every_per_node": 0.05, "_label": "0.05e", "edit_distribution": "expo"},
+        {"meeting_every_per_node": 0.05, "_label": "0.05u", "edit_distribution": "uniform"}
+    ],
+    "base_params": {
+        "node_count": 10,
+        "edit_every_global": 1
+    }
+}, {
+    "active": false,
+    "name": "global_meeting_frequency_n=15",
+    "xlabel": "meeting frequency per node (ideal, n=15)",
+    "changes": [
+        {"meeting_every_per_node": 10},
+        {"meeting_every_per_node": 5},
+        {"meeting_every_per_node": 2},
+        {"meeting_every_per_node": 1},
+        {"meeting_every_per_node": 0.5},
+        {"meeting_every_per_node": 0.1},
+        {"meeting_every_per_node": 0.05}
+    ],
+    "base_params": {
+        "node_count": 15,
+        "edit_every_global": 1
+    }
+}, {
+    "active": false,
+    "name": "global_meeting_frequency_n=20",
+    "xlabel": "meeting frequency per node (ideal, n=20)",
+    "changes": [
+        {"meeting_every_per_node": 10},
+        {"meeting_every_per_node": 5},
+        {"meeting_every_per_node": 2},
+        {"meeting_every_per_node": 1},
+        {"meeting_every_per_node": 0.5},
+        {"meeting_every_per_node": 0.1},
+        {"meeting_every_per_node": 0.05}
+    ],
+    "base_params": {
+        "node_count": 20,
+        "edit_every_global": 1
+    }
+}, {
+    "active": true,
+    "name": "global_meeting_frequency_n=30",
+    "xlabel": "meeting frequency per node (ideal, n=30)",
+    "changes": [
+        {"meeting_every_per_node": 10},
+        {"meeting_every_per_node": 5},
+        {"meeting_every_per_node": 2},
+        {"meeting_every_per_node": 1},
+        {"meeting_every_per_node": 0.5},
+        {"meeting_every_per_node": 0.1},
+        {"meeting_every_per_node": 0.05}
+    ],
+    "base_params": {
+        "node_count": 30,
+        "edit_every_global": 1
+    }
+}, {
+    "active": false,
+    "name": "global_meeting_frequency_n=40",
+    "xlabel": "meeting frequency per node (ideal, n=40)",
+    "changes": [
+        {"meeting_every_per_node": 10},
+        {"meeting_every_per_node": 5},
+        {"meeting_every_per_node": 2},
+        {"meeting_every_per_node": 1},
+        {"meeting_every_per_node": 0.5},
+        {"meeting_every_per_node": 0.1},
+        {"meeting_every_per_node": 0.05}
+    ],
+    "base_params": {
+        "node_count": 40,
+        "edit_every_global": 1
+    }
+}, {
+    "active": true,
+    "name": "dumb_meeting_frequency_n=10",
+    "xlabel": "meeting frequency per node (default, n=10)",
+    "changes": [
+        {"meeting_every_per_node": 10},
+        {"meeting_every_per_node": 5},
+        {"meeting_every_per_node": 2},
+        {"meeting_every_per_node": 1},
+        {"meeting_every_per_node": 0.5},
+        {"meeting_every_per_node": 0.1},
+        {"meeting_every_per_node": 0.05}
+    ],
+    "base_params": {
+        "node_count": 10,
+        "edit_every_global": 1,
+        "intelligent_merging": false
+    }
+}, {
+    "active": false,
+    "name": "dumb_meeting_frequency_n=15",
+    "xlabel": "meeting frequency per node (default, n=15)",
+    "changes": [
+        {"meeting_every_per_node": 10},
+        {"meeting_every_per_node": 5},
+        {"meeting_every_per_node": 2},
+        {"meeting_every_per_node": 1},
+        {"meeting_every_per_node": 0.5},
+        {"meeting_every_per_node": 0.1}
+    ],
+    "base_params": {
+        "node_count": 15,
+        "edit_every_global": 1,
+        "intelligent_merging": false
+    }
+}, {
+    "active": false,
+    "name": "dumb_meeting_frequency_n=20",
+    "xlabel": "meeting frequency per node (default, n=20)",
+    "changes": [
+        {"meeting_every_per_node": 10},
+        {"meeting_every_per_node": 5},
+        {"meeting_every_per_node": 2},
+        {"meeting_every_per_node": 1},
+        {"meeting_every_per_node": 0.5},
+        {"meeting_every_per_node": 0.2}
+    ],
+    "base_params": {
+        "node_count": 20,
+        "edit_every_global": 1,
+        "intelligent_merging": false
+    }
+}, {
+    "active": true,
+    "name": "dumb_meeting_frequency_n=30",
+    "xlabel": "meeting frequency per node (default, n=30)",
+    "changes": [
+        {"meeting_every_per_node": 10},
+        {"meeting_every_per_node": 5},
+        {"meeting_every_per_node": 2},
+        {"meeting_every_per_node": 1},
+        {"meeting_every_per_node": 0.5},
+        {"meeting_every_per_node": 0.2}
+    ],
+    "base_params": {
+        "node_count": 30,
+        "edit_every_global": 1,
+        "intelligent_merging": false
+    }
+}
+
+]

@@ -1,0 +1,19 @@
+{
+    "atom_count": 1,
+    "node_count": 10,
+    "meeting_duration": 200,
+    "meeting_every_per_node": 0.1,
+    "edit_distribution": "expo",
+    "edit_duration": 100,
+    "edit_every_per_node": null,
+    "edit_every_global": 1,
+    "intelligent_merging": true,
+    "bidi": "push",
+    "limit": 100000,
+    "runs": 1000,
+
+    "merge_nocontent_percent": null,
+    "merge_nocontent_abort_after_total": null,
+    "accept_if_bored": null,
+    "bored_base": null
+}
