@@ -28,5 +28,7 @@ def load_all():
     ls = os.listdir(DATA_DIR)
     for f in ls:
         m = re.match(r'^([^/]*)\.json$', f)
+        if not m:
+            continue
         key = m.group(1)
         yield (key, load(key))
