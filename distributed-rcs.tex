@@ -1,4 +1,4 @@
-\documentclass[letterpaper,conference]{IEEEtran}
+\documentclass[conference,letterpaper]{IEEEtran}
 
 \usepackage[utf8]{inputenc}
 \usepackage{cite}
@@ -32,13 +32,13 @@ We also show that speeding up \textit{or slowing down} communication can reduce 
 
 \section{Introduction}
 
-Joint work on text documents is a cornerstone of political activities in a democracy. For example, drafting the program of a party, preparing prosals for laws and regulations, gathering feedback on what collective actions should be taken requires read and write access to shared text documents.
+Joint work on text documents is a cornerstone of political activities in a democracy. For example, drafting the program of a party, preparing proposals for laws and regulations, gathering feedback on what collective actions should be taken requires read and write access to shared text documents. Revision control systems are a fundamental tool to support this kind of cooperation.
 
-Revision control systems are a fundamental tool to support this kind of cooperation. However, as we have seen during the Arab spring, Egypt and Libya effectively shut down their Internet access\cite{outage} in the face of democratic movements. China and Iran, among others, also use sophisticated Internet censorship systems which have a similar effect.
+However, as we have seen during the Arab spring, Egypt and Libya effectively shut down their Internet access\cite{outage}. China and Iran, among others, also employ sophisticated Internet censorship, which could prevent such cooperation.
 
 While Internet access is typically centralized and can therefore be censored easily, distributed systems where users communicate peer-to-peer are exceptionally hard to censor. Therefore, we want to enable revision control systems to work in the face of censorship by using them in a distributed fashion.
 
-We envision a scenario where numerous groups of users meet up and create a common document using local WiFi and then transmit the changes via \textit{sneakernet} or local networks. Some users may simultaneously be able to communicate with a central server or Internet-based peer-to-peer network, but there is no single master copy. Instead, new changes get integrated into the local state when they become available via any communication channel.
+We envision a scenario where numerous groups of users meet up and create a common document using local WiFi and then transmit the changes via \textit{sneakernet}\footnote{e.g. USB thumb drives} or local networks. Some users may simultaneously be able to communicate with a central server or Internet-based peer-to-peer network, but there is no single master copy. Instead, new changes get integrated into the local state when they become available via any communication channel.
 
 Current revision control systems such as \textit{git} do include support for a distributed way of working and are hence often called distributed, but in practice use one or a very small number of centralized stores to synchronize the users' work. If such a centralized store is not available -- for example because of censorship -- this workflow breaks down. The flow of data in a distributed system is completely different, and neccesitates the analysis of potential pitfalls which we want to provide in this paper.
 
@@ -46,7 +46,7 @@ Current peer-to-peer revision control systems such as PlatinVC\cite{mukherjee200
 
 We want to know whether such a revision control system can work when there is no central synchronization point, and under what conditions it works best.
 
-In the remainder of the paper we investigate how the mechanisms used in current revision control systems would work in a setting where there is no central synchronization point and the communication channel has a very high latency. To this end we use nework simulation as this allows us to experiment with a large number of different settings and get a good first understanding of the key issues involved.  
+In the remainder of the paper we investigate how the mechanisms used in current revision control systems would work in a setting where there is no central synchronization point and the communication channel has a very high latency. To this end we use network simulation as this allows us to experiment with a large number of different settings and get a good first understanding of the key issues involved.
 
 \section{Simulation Setup}
 
@@ -62,13 +62,15 @@ Merging typically requires user interaction (arguably the costliest resource in 
 
 To characterize the merging, we look at the two current commits (each forming the top of a sub-DAG) to merge and distinguish two basic cases: If one of the top commits is an ancestor of the other -- including both top commits being identical -- then merging is simple, as it only consists of settings the top of the local DAG to the newer of the two commits.
 
-If not, then we can model a wide variety of different merging approaches. In an \textit{ideal} world (with an \textit{ideal merging function}), all merges of a set of edits would result in the same final result, no matter the order and paths that all individual commits got merged in. At the opposite end of the scale, the \textit{default} approach -- named so because it is the one actually used in practice by graph-based revision control systems at the moment -- simply merges every time it encounters two commits created contemporaneously, providing an upper boundary for the worst possible algorithm. However, note that this accurately models the current state of revision control software.
+If not, then we can model a wide variety of different merging approaches. With an \textit{ideal} merging function, all merges of a set of edits would result in the same final result, no matter the order and paths that all individual commits got merged in (this is unrealistic, but a good upper boundary on efficiency). At the opposite end of the scale, the \textit{default} approach -- named so because it is the one actually used in practice by graph-based revision control systems at the moment -- simply merges every time it encounters two commits created contemporaneously, providing an upper boundary for the worst possible algorithm. However, note that this accurately models the current state of revision control software.
 
 In both approaches, the final cost is the number of merges in the system, doing double duty both as an indicator of computation/user time as well as network storage requirements.
 
-We assume that nodes meet randomly with exponentially distributed interarrival times per node ($m$ on average), which has been shown to be a good modeling for mobile ad-hoc/opportunistic networks\cite{groenevelt}. For the edits, we evaluated both uniform and exponential distributions. Since our timescale is arbitrary (one unit could be hours just as well as minutes), we fixed the expected value of edits to one per time unit.
+We assume that nodes meet randomly with exponentially distributed interarrival times per node, which has been shown to be a good modeling for mobile ad-hoc/opportunistic networks\cite{groenevelt}. Due to the speed of WiFi/USB in relation to our textual data, we assume that all transfers are complete.
 
-We divide the simulation into two phases: In the \textit{active} phase, nodes move around and edit the repository, modeling a repository where new content is constantly being added. The active phase is followed by the \textit{cooldown} phase, in which nodes cease to edit new content, but still move around and merge. By examining the behavior in the absence of content generation in the cooldown phase, we can exclude systems that fail on their own, without any input.
+For the edits, we evaluated both uniform and exponential distributions. Since our timescale is arbitrary (one unit could be hours just as well as minutes), we fixed the expected value of edits to one per time unit.
+
+We divide the simulation into two phases: In the \textit{active} phase, nodes move around and edit the repository, modeling a repository where new content is constantly being added. The active phase is followed by the \textit{cooldown} phase, in which nodes cease to edit new content, but still move around and merge. By examining the behavior in the absence of content generation in the cooldown phase, we can exclude systems that fail on their own, without any input. In addition, the cooldown phase provides a lower boundary for the number of merges a new user would have to perform to reach the most updated state.
 
 \section{Simulation Results}
 
@@ -97,11 +99,11 @@ Either users ignore new changes (fig. \ref{fig:bored}), or they throw away their
   \label{fig:bored_accept}
 \end{figure}
 
-In the rest of the paper, we evaluate how varying rates and forms of editing and network sizes influence the total number of merges. For that, we assume an ideal merging function, because we want to exclude the inherent accumulation of merges with the default algorithm even in the absence of new edits.
+In the rest of the paper, we evaluate how varying rates and forms of editing and network sizes influence the total number of merges. To exclude the inherent accumulation of merges with the default algorithm even in the absence of new edits, we assume an ideal merging function.
 
 By varying the network size as well as rate of meetings and edits, we can discover how revision control systems fare under varying circumstances. In the following set of simulations, we assumed 1 edit per time unit and varied how often node would meet per time unit. The users only merge if the content of the two commits to merge is different, which corresponds to an ideal merging function.
 
-When nodes meet very rarely, the total number of merges is constrained by the meetings; almost every meeting results in a merge. In this scenario, it is also possible that new edits of a node directly follow the previous edits of the same node. On the opposite end, when nodes communicate really quickly, there is a good chance that new edits are propagated to the network - just like in an centralized system, all nodes encounter all the edits in the same order. For instance, in the simulation shown in fig. \ref{fig:freq_n10}, we generate 1 edit per time unit somewhere in the whole network. We can plainly see that 1 meeting per time unit causes the maximum number of merges.
+When nodes meet very rarely, the total number of merges is constrained by the meetings; almost every meeting results in a merge. In this scenario, it is also possible that new edits of a node directly follow the previous edits of the same node. On the opposite end, with a high frequency of encounters, there is a good chance that new edits are propagated to the network - just like in an centralized system, all nodes encounter all the edits in the same order. For instance, in the simulation shown in fig. \ref{fig:freq_n10}, we generate 1 edit per time unit somewhere in the whole network. We can plainly see that 1 meeting per time unit causes the maximum number of merges.
 
 \begin{figure}
   \includegraphics[width=\linewidth]{img_pdf/global_meeting_frequency_n=10.pdf}
@@ -143,6 +145,11 @@ Another interesting question concerns the communication behaviour when two nodes
 
 As can be seen in fig. \ref{fig:bidi_n20}, merging before parting ways is the most effective method by far. This is not surprising, as this approach is similar to the same simulation with half the node count. By making sure that every merge has to be performed by both communication partners, the doublepush scheme has the opposite effect.
 
+% \begin{figure}
+%   \includegraphics[width=\linewidth]{img_pdf/bidi_n=10.pdf}
+%   \caption{Bidirectional merging with 10 nodes}
+%   \label{fig:bidi_n10}
+% \end{figure}
 \begin{figure}
   \includegraphics[width=\linewidth]{img_pdf/bidi_n=20.pdf}
   \caption{Bidirectional merging with 20 nodes}
