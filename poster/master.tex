@@ -38,7 +38,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Abstract
 \newcommand{\printabstract}{Current revision control systems are commonly used in a distributed fashion but rely on centralized stores and low-latency communication. In this work we evaluate how they
-would fare in fully distributed high latency networks such asdelay tolerant networks (DTNs). We show that current revision control systems impose significant costs under these conditions even in moderately-sized networks. By simplifying/improving the merging process, these costs can be reduced. We also show that speeding up \textit{or slowing down} communication can reduce the costs significantly.
+would fare in fully distributed high latency networks such as delay tolerant networks (DTNs). We show that current revision control systems impose significant costs under these conditions even in moderately-sized networks. By simplifying/improving the merging process, these costs can be reduced. We also show that speeding up \textit{or slowing down} communication can reduce the costs significantly.
 }
 
 
@@ -79,7 +79,7 @@ would fare in fully distributed high latency networks such asdelay tolerant netw
   \vspace{10mm}
   \begin{beamercolorbox}[leftskip=0.5em,rightskip=0.5em,colsep*=.75ex,sep=0.5ex,vmode]{block body}%
   \vspace{0.2em}
-    Actual decentralized revision control systems have a small number of centralized hubs, which makes them vulnerable to censorship. When a revision control system is used in a distributed fashion, users must merge content to get a consistent view - but \textbf{how many merges} are required?
+    Real-world decentralized revision control systems have a small number of centralized hubs, which makes them vulnerable to censorship. When a revision control system is used in a distributed fashion, users must merge content to get a consistent view - but \textbf{how many merges} are required?
   \vspace{0.2em}
   \end{beamercolorbox}
 
@@ -121,7 +121,7 @@ would fare in fully distributed high latency networks such asdelay tolerant netw
   \end{center}
 
   \vspace{8mm}
-  \textbf{How do which factors impact the number of merges?}
+  \textbf{What factors impact the number of merges?}
   \vspace{5mm}
 
   \begin{columns}
@@ -154,7 +154,7 @@ would fare in fully distributed high latency networks such asdelay tolerant netw
   \begin{columns}
   \begin{column}{.3\textwidth}
     \begin{center}
-       Nodes merge together before going on:
+       Nodes merge before going on:
     \end{center}
     \begin{figure}
       \includegraphics[width=\linewidth]{fig/bidi_n=20.pdf}
@@ -188,14 +188,14 @@ would fare in fully distributed high latency networks such asdelay tolerant netw
   \vspace{1mm}
   \begin{beamercolorbox}[leftskip=0.5em,rightskip=0.5em,colsep*=.75ex,sep=0.5ex,vmode]{block body}%
   \vspace{0.2em}
-  Surprisingly, with an ideal merging function (\textit{darcs} may be a real-world example) medium-sized networks only grow linearly in merge count. \\
-  Bidirectional merging and meeting frequency have an impact on merge counts, but only less than 10x. \\
+  Surprisingly, with an ideal merging function (\textit{darcs} may be a real-world example) the number of merges increases only linearly. \\
+  Bidirectional merging and meeting frequency have an impact on merge counts, easily 10x. \\
   \vspace{0.2em}
   \end{beamercolorbox}
 
   \vspace{1.5cm}
   \begin{center}
-  \textbf{Future research needed how to prevent need for merging in the first place, even in a fully distributed system with many branches available!}
+  \textbf{Future research needed how to prevent the need for merging in the first place, even in a fully distributed system with many branches}
   \end{center}
 
 \end{column}
