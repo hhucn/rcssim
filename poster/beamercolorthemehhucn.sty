@@ -1,0 +1,55 @@
+\ProvidesPackage{beamercolorthemehhucn}  % this style is based on a poster style by Florian Tschorsch
+
+\RequirePackage{color}
+\selectcolormodel{cmyk}
+\mode<presentation>
+
+% Coporate design colors
+\definecolor{hhublau}{cmyk}{1.0,0.5,0,0}               % 100%
+\definecolor{hhuhellblau}{cmyk}{0.3,0.15,0,0}          %  30%
+\definecolor{hhusehrhellblau}{cmyk}{0.1,0.05,0,0}      %  10%
+
+\definecolor{hhurot}{cmyk}{0.15,1.0,0.9,0.1}           % 100%
+\definecolor{hhuhellrot}{cmyk}{0.045,0.3,0.27,0.03}    %  30%
+\definecolor{hhusehrhellrot}{cmyk}{0.015,0.1,0.09,0.01}%  10%
+
+\definecolor{hhugruen}{cmyk}{0.5,0,1.0,0}              % 100%
+\definecolor{hhuhellgruen}{cmyk}{0.15,0,0.3,0}         %  30%
+\definecolor{hhusehrhellgruen}{cmyk}{0.05,0,0.1,0}     %  10%
+
+\definecolor{hhugrau}{cmyk}{0,0,0,0.2}                 % 100%
+
+% Top and bottom elements
+\setbeamercolor{headline}{fg=black,bg=white}
+\setbeamercolor{footline}{fg=white, bg=hhublau}
+\setbeamercolor{abstract}{fg=white, bg=hhublau}
+
+\setbeamercolor{local structure}{bg=white, fg=black}
+\setbeamercolor{structure}{bg=white, fg=black}
+\setbeamercolor{item}{bg=white, fg=black}
+
+\setbeamercolor{normal text}{fg=black,bg=white}
+
+\setbeamercolor*{sidebar}{use=structure,bg=structure.fg}
+
+\setbeamercolor*{palette sidebar primary}{use=structure,fg=structure.fg!10}
+\setbeamercolor*{palette sidebar secondary}{fg=white}
+\setbeamercolor*{palette sidebar tertiary}{use=structure,fg=structure.fg!50}
+\setbeamercolor*{palette sidebar quaternary}{fg=white}
+
+\setbeamercolor*{titlelike}{parent=palette primary}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+% Block style definitions
+\setbeamercolor{block title}{fg=black,bg=hhuhellblau}
+\setbeamercolor{block title alerted}{use=alerted text,fg=alerted text.fg,bg=hhuhellrot}
+\setbeamercolor{block title example}{use=example text,fg=example text.fg,bg=hhuhellgruen}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=hhusehrhellblau}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=hhusehrhellrot}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=hhusehrhellgruen}
+
+\mode
+<all>

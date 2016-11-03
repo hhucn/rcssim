@@ -1,0 +1,121 @@
+\ProvidesPackage{beamerthemehhucn}  % this style is based on a poster style by Florian Tschorsch
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{color}
+\selectcolormodel{cmyk}
+\mode<presentation>
+
+\usecolortheme{hhucn}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Block style definition.
+\setbeamertemplate{block begin}{
+\begin{columns}[T]
+     \begin{column}{\linewidth}
+  \centering
+    \vskip2ex
+    \begin{beamercolorbox}[ht=5ex,dp=0.5ex,center,leftskip=-1.5ex,colsep*=.75ex]{block title}%
+      \usebeamerfont*{block title}%
+      {\phantom{Gg}\insertblocktitle}% phantom because of baseline problem
+    \end{beamercolorbox}
+    \usebeamerfont{block body}%
+    \begin{beamercolorbox}[leftskip=0.5em,colsep*=.75ex,sep=0.5ex,vmode]{block body}%
+}
+\setbeamertemplate{block end}{
+    \end{beamercolorbox}
+    \end{column}
+  \end{columns}
+  \vskip1ex
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title and authors block. 1/8th paperheight.
+\setbeamertemplate{headline}{
+  \leavevmode
+
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.125\paperheight]{headline}
+    \begin{columns}[T]
+      \begin{column}{.02\paperwidth}
+      \end{column}
+      \begin{column}{.7\paperwidth}
+        \vskip9ex
+        \centering
+        \usebeamercolor{headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[2ex]}
+        \usebeamercolor{headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+        \usebeamercolor{headline}{\color{fg}\large{\insertinstitute}\\[1ex]}
+      \end{column}
+      \begin{column}{.25\paperwidth}
+        \vskip8ex
+        \begin{center}
+          \includegraphics[width=.95\linewidth]{fig/unilogo}
+        \end{center}
+        \vskip2ex
+      \end{column}
+      \begin{column}{.02\paperwidth}
+      \end{column}
+    \end{columns}
+    \vskip3ex  % height of 1/8 of the poster
+  \end{beamercolorbox}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abstract block. 1/8th paperheight.
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.06\paperheight]{abstract}
+  \begin{columns}[T]
+    \begin{column}{.88\textwidth}
+      { \normalsize
+      \emph{Abstract} -- \printabstract
+      }
+      \end{column}
+    \end{columns}
+  \vskip5ex % height of 1/8 of the poster
+  \end{beamercolorbox}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Conference block. 1/16th paperheight.
+
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \begin{beamercolorbox}[ht=0.0625\paperheight,leftskip=1em,rightskip=1em]{footline}%
+    \vskip1ex
+  \begin{columns}[T]
+    \begin{column}{.88\textwidth}
+      \begin{flushright}
+      {
+       \LARGE\bf \printconference
+      }
+      \end{flushright}
+      \end{column}
+    \end{columns}
+    \vskip14ex
+  \end{beamercolorbox}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Display a grid to help align images ... and it looks nice with this color scheme
+%\beamertemplategridbackground[14.8625cm] % 1/8 of the Din A0 height
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<all>
+
+\setbeamertemplate{navigation symbols}{}  % no navigation on a poster
+
+% adapt height of itemize rectangles
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{itemize item}{\raisebox{0.12ex}{$\blacktriangleright$}\hskip0.1em}
+\setbeamertemplate{itemize subitem}{\raisebox{0.12ex}{$\triangleright$}\hskip0.1em}
+% or define your own template using \defbeamertemplate{itemize item}, see beameruserguide.pdf
+
+% equal font sizes for all levels
+\setbeamerfont{itemize/enumerate body}{size=\small}
+\setbeamerfont{itemize/enumerate subbody}{size=\small}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\small}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
